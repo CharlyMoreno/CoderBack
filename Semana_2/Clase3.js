@@ -28,5 +28,5 @@ const ejecutora = funcion => funcion()
 ejecutora(mostrarHola)
 ejecutora(mostrarChau)
 
-
+//Ejecuta la funcion cada 3 segundos
 setInterval(_=>{console.log('hola')},3000)
