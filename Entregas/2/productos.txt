@@ -1,68 +1,20 @@
 [
 	{
-		"title": "Producto 1",
-		"price": "1000",
-		"thumbnail": "Hola",
-		"id": 1
-	},
-	{
-		"title": "Producto 2",
-		"price": "1500",
-		"thumbnail": "Hola",
+		"title": "Tomate",
+		"precio": "1500",
+		"hola": "http://localhost",
 		"id": 2
 	},
 	{
-		"title": "Producto 3",
-		"price": "1700",
-		"thumbnail": "Hola",
+		"title": "Tomate",
+		"precio": "1500",
+		"hola": "http://localhost",
+		"id": 1
+	},
+	{
+		"title": "Tomate",
+		"precio": "1500",
+		"hola": "http://localhost",
 		"id": 3
-	},
-	{
-		"title": "Tomate",
-		"precio": "1500",
-		"thumbnail": "http://localhost",
-		"id": 4
-	},
-	{
-		"title": "Tomate",
-		"precio": "1500",
-		"hola": "http://localhost",
-		"id": 5
-	},
-	{
-		"title": "Tomate",
-		"precio": "1500",
-		"hola": "http://localhost",
-		"id": 6
-	},
-	{
-		"title": "Tomate",
-		"precio": "1500",
-		"hola": "http://localhost",
-		"id": 7
-	},
-	{
-		"title": "Tomate",
-		"precio": "1500",
-		"hola": "http://localhost",
-		"id": 8
-	},
-	{
-		"title": "Tomate",
-		"precio": "1500",
-		"hola": "http://localhost",
-		"id": 9
-	},
-	{
-		"title": "Tomate",
-		"precio": "1500",
-		"hola": "http://localhost",
-		"id": 10
-	},
-	{
-		"title": "Tomate",
-		"precio": "1500",
-		"hola": "http://localhost",
-		"id": 11
 	}
 ]
