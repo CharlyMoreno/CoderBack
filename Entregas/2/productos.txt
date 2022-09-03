@@ -1,20 +1,26 @@
 [
 	{
-		"title": "Tomate",
-		"precio": "1500",
-		"hola": "http://localhost",
+		"title": "Auriculares Logitech G433 Gaming Black",
+		"precio": "16800",
+		"thumbnail": "https://acortar.link/InFFer",
+		"id": 4
+	},
+	{
+		"title": "Auriculares Logitech H151 PC",
+		"precio": "2770",
+		"thumbnail": "https://acortar.link/InFFer",
+		"id": 3
+	},
+	{
+		"title": "Auriculares HyperX Cloud Flight Black",
+		"precio": "20480",
+		"thumbnail": "https://acortar.link/InFFer",
 		"id": 2
 	},
 	{
-		"title": "Tomate",
-		"precio": "1500",
-		"hola": "http://localhost",
+		"title": "Auriculares ASUS ROG STRIX GO CORE",
+		"precio": "18970",
+		"thumbnail": "https://acortar.link/InFFer",
 		"id": 1
-	},
-	{
-		"title": "Tomate",
-		"precio": "1500",
-		"hola": "http://localhost",
-		"id": 3
 	}
 ]
