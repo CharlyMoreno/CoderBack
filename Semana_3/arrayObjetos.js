@@ -38,11 +38,11 @@ function sortedArray(metodo){
     else if(metodo == "mayor"){
         array.sort((a, b) => b.precio - a.precio);
     }
-    return array[0];
+    return array;
 }
 
 
 console.log(getNombre())
 console.log(precioPromedio())
 console.log(precioTotal())
-console.log(sortedArray("mayor"))
+console.log(sortedArray("mayor")[0])
