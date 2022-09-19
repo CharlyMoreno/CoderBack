@@ -4,6 +4,24 @@ const arrayProductos = [
         "precio":1000,
         "thumbnail": "test",
         "id": 2
+    },
+    {
+        "titulo":"Producto",
+        "precio":1000,
+        "thumbnail": "test",
+        "id": 3
+    },
+    {
+        "titulo":"Producto",
+        "precio":1000,
+        "thumbnail": "test",
+        "id": 4
+    },
+    {
+        "titulo":"Producto",
+        "precio":1000,
+        "thumbnail": "test",
+        "id": 5
     }
 ];
 
