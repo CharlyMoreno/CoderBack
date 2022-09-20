@@ -44,7 +44,7 @@ const addProducto = (producto) => {
         const productNew = {
             "titulo":producto.titulo,
             "precio":producto.precio,
-            "thumbail":producto.thumbnail,
+            "thumbnail":producto.thumbnail,
             "id":setId()
         }
         arrayProductos.push(productNew)

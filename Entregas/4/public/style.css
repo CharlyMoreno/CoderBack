@@ -107,7 +107,7 @@ h1{
   /* Modal Content/Box */
   .modal-content {
     background-color: #27282D;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 5% auto; /* 15% from the top and centered */
     padding: 20px;
     width: 50%; /* Could be more or less, depending on screen size */
   }
@@ -147,10 +147,9 @@ h1{
     border:0px;
     font-weight: bold;
     padding: 15px 0px;
-    margin-top: 30px;
+    width: 50%;
   }
 
   form{
-    margin-top: 30px;
     padding: 15px 0px;
   }
