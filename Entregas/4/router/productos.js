@@ -7,32 +7,55 @@ router.use(express.json());
 
 // GET ALL
 router.get('/',(req,res)=>{
-    const productos = p.getAll();
-    res.json(productos)
+    try{
+        const productos = p.getAll();
+        res.json(productos)
+        res.status(200)
+    }
+    catch(err){
+        res.status(500)
+    }
+
 })
 
 // GET BY ID
 router.get('/:id',(req,res)=>{
-    const producto = p.getById(req.params.id);
-    res.json(producto);
+    try{
+        const producto = p.getById(req.params.id);
+        res.json(producto)
+        res.status(200)
+    }
+    catch(err){res.status(500)}
 })
 
 //POST --> Agregar producto
 router.post('/',(req,res)=>{
-    p.addProducto(req.body)
-    res.send('Post Correcto')
+    try{
+        p.addProducto(req.body)
+        res.send('Post Correcto')
+        res.status(201)    
+    }
+    catch(err){res.status(500) }
 })
 
 //PUT --> Actualizar producto
 router.put('/:id',(req,res)=>{
-    p.updateProducto(req.params.id,req.body)
-    res.send('Put Correcto')
+    try{
+        p.updateProducto(req.params.id,req.body)
+        res.send('Put Correcto')
+        res.status(200)
+    }
+    catch(err){res.status(500)}
 })
 
 //DELETE --> Borrar producto
 router.delete('/:id',(req,res)=>{
-    p.removeProducto(req.params.id)
-    res.send('Remove Correcto')
+    try{
+        p.removeProducto(req.params.id)
+        res.send('Remove Correcto')
+        res.status(200)
+    }
+    catch(err){res.status(500)}
 })
 
 module.exports = router;    

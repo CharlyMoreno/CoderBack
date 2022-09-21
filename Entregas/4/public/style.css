@@ -127,12 +127,15 @@ h1{
     cursor: pointer;
   }
 
-
-  #title_modal{
+  .modal-content h2{
     font-size:50px;
     padding:10px 0px;
     margin:0px;
     border-bottom: #D3E661 2px solid;
+  }
+
+  .modal-content span {
+        color:#D3E661;
   }
 
   form input{ 
@@ -141,7 +144,7 @@ h1{
   }
 
 
-  #btn_enviar{
+  .btn_form{
     background-color: #D3E661;
     color:black;
     border:0px;

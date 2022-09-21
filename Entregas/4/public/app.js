@@ -9,9 +9,6 @@ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
-  const title = document.getElementById("title_modal")
-  title.innerText = `Crear`;
-  btn_enviar.onclick = crearDatos
   modal.style.display = "block";
 }
 
@@ -24,6 +21,24 @@ span.onclick = function() {
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+  }
+}
+
+// Get the modal
+var modal_mod = document.getElementById("myModal_mod");
+
+// Get the <span> element that closes the modal
+var span_mod = document.getElementsByClassName("close")[1];
+
+// When the user clicks on <span> (x), close the modal
+span_mod.onclick = function() {
+  modal_mod.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal_mod) {
+    modal_mod.style.display = "none";
   }
 }
 
@@ -92,6 +107,7 @@ function cargarDatos(){
 }
 
 const btn_enviar = document.getElementById('btn_enviar')
+btn_enviar.onclick = crearDatos
 const titulo = document.getElementById('titulo')
 const precio = document.getElementById('precio')
 const thumbnail = document.getElementById('thumbnail')
@@ -102,6 +118,21 @@ async function postData(url = '', data = {}) {
   // Default options are marked with *
   const response = await fetch(url, {
     method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    headers: {
+      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: 'follow', // manual, *follow, error
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
+  });
+  // return response.json(); // parses JSON response into native JavaScript objects
+}
+
+// Example POST method implementation:
+async function putData(url = '', data = {}) {
+  // Default options are marked with *
+  const response = await fetch(url, {
+    method: 'PUT', // *GET, POST, PUT, DELETE, etc.
     headers: {
       'Content-Type': 'application/json'
       // 'Content-Type': 'application/x-www-form-urlencoded',
@@ -132,25 +163,44 @@ async function crearDatos(){
   span.onclick();
 }
 
-function modificar(){
-  alert('modfiicas')
-}
+const btn_modificar = document.getElementById('btn_modificar');
+const titulo_mod = document.getElementById('titulo_mod')
+const precio_mod = document.getElementById('precio_mod')
+const thumbnail_mod = document.getElementById('thumbnail_mod')
 
 function botonClick(id){
-  const title = document.getElementById("title_modal")
-  title.innerText = `Modificar - Id: ${id}`;
-  titulo.value = "1"
-  precio.value = "2"
-  thumbnail.value = "3"
-  btn_enviar.onclick = modificar
-  btn.onclick()
+  fetch(`http://localhost:8080/api/productos/${id}`)
+    .then((response) => response.json())
+    .then((data) => {
+      const title = document.getElementById("title_modal_mod")
+      title.innerHTML = `MODIFICAR - Id: # <span id="id_product">${id}</span>`;
+      titulo_mod.value = data.titulo
+      precio_mod.value = data.precio
+      thumbnail_mod.value = data.thumbnail
+      modal_mod.style.display = "block";
+     })
+
+}
+
+btn_modificar.onclick = async () => {
+  const id = document.getElementById('id_product').textContent
+  const data = {
+    "titulo": titulo_mod.value,
+    "precio": precio_mod.value,
+    "thumbnail": thumbnail_mod.value,
+  }
+  await putData(`http://localhost:8080/api/productos/${id}`,data)
+  alert('Modificado Correctamente')
+  cargarDatos();
+  span_mod.onclick();
 }
 
 async function eliminar(id){
-  await deleteData('http://localhost:8080/api/productos/id')
+  await deleteData(`http://localhost:8080/api/productos/${id}`)
   alert(`Borrado correctamente - Id: ${id}`)
   cargarDatos();
 }
+
 
 
 cargarDatos();
