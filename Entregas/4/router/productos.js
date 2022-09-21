@@ -1,7 +1,7 @@
 const express = require('express');
 const { Router } = express;
 const router = Router()
-const p = require('./persistencia')
+const p = require('../persistencia/persistencia')
 
 router.use(express.json());
 
