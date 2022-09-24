@@ -1,0 +1,26 @@
+<div class="tabla">
+    <table style="width:100%">
+        <tr class="table_header">
+            <th class="col_img">Imagen</th>
+            <th class="col_id">Id</th>
+            <th class="col_titulo">Titulo</th>
+            <th class="col_precio">Precio</th>
+        </tr>
+        {{#if listExist}}
+            {{#each productos}}
+                <tr>
+                    <td class="col_img">
+                        <img src=" + {{this.imagen}} + " alt="" srcset="" class="img_table">
+                    </td>
+                    <td class="col_id"> {{ this.id }}</td>
+                    <td class="col_titulo">{{this.titulo}}</td>
+                    <td class="col_precio"> {{this.precio}}</td>
+                </tr>
+            {{/each}}
+        {{else}}
+            <tr> 
+            </tr>
+        {{/if}}
+
+    </table>
+</div>
