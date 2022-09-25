@@ -1,0 +1,31 @@
+doctype html
+html 
+    include head.pug
+    body
+        include header.pug
+
+        if listExist
+            div(class="tabla")
+                table(style="width:100%")
+                    tr(class="table_header")
+                        th(class="col_img")="Imagen"
+                        th(class="col_id")="Id"
+                        th(class="col_titulo")="Titulo"
+                        th(class="col_precio")="Precio"
+                    each p in productos 
+                        tr 
+                            td(class="col_img")
+                                img(src=p.thumbnail, alt="", srcset="", class="img_table")
+                            td(class="col_id")= p.id
+                            td(class="col_titulo")= p.titulo
+                            td(class="col_precio")= p.precio
+        else
+            div(class="box-msg")
+                h2="No se encuentran productos registrados"
+                p="Debes cargar los productos primero, para luego visualizarlos"
+
+        a(class="btn_primary", href="/create")="CREAR +"
+        
+        footer 
+            p="Desorrlado por "
+                a(href="https://github.com/CharlyMoreno")="CharlyMoreno"

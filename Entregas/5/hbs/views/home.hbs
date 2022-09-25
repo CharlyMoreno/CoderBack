@@ -1,0 +1,30 @@
+
+        {{#if listExist}}
+            <div class="tabla">
+                <table style="width:100%">
+                    <tr class="table_header">
+                        <th class="col_img">Imagen</th>
+                        <th class="col_id">Id</th>
+                        <th class="col_titulo">Titulo</th>
+                        <th class="col_precio">Precio</th>
+                    </tr>
+                {{#each productos}}
+                    <tr>
+                        <td class="col_img">
+                            <img src=" {{{ this.thumbnail }}} " alt="" srcset="" class="img_table">
+                        </td>
+                        <td class="col_id"> {{ this.id }}</td>
+                        <td class="col_titulo">{{this.titulo}}</td>
+                        <td class="col_precio"> {{this.precio}}</td>
+                    </tr>
+                {{/each}}
+                </table>
+            </div>
+        {{else}}
+            <div class="box-msg">
+                <h2>No se encuentran productos registrados</h2>
+                <p>Debes cargar los productos primero, para luego visualizarlos</p>
+            </div>
+        {{/if}}
+
+        <a class="btn_primary"  href="/create"> CREAR + </a>

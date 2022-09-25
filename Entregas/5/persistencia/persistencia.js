@@ -103,7 +103,9 @@ const updateProducto = (id,producto) => {
     arrayProductos[indexOf].precio = producto.precio;
     arrayProductos[indexOf].thumbnail = producto.thumbnail;
 };
-const getAll = () => {return arrayProductos};
+const getAll = () => {
+	return arrayProductos.sort(function(a, b) {return (a.id - b.id);})
+};
 const getById = (id) => {
     const producto = arrayProductos.find(x => x.id == id);
     return producto;

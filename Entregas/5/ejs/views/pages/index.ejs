@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head'); %>
+<body>
+    <%- include('../partials/header'); %>
+
+    <% if(listExist) { %>
+    <div class="tabla">
+        <!-- Simple table with header -->
+        <table style="width:100%" id="tabla_prodcutos">
+            <tr class="table_header">
+                <th class="col_img">Imagen</th>
+                <th class="col_id">Id</th>
+                <th class="col_titulo">Titulo</th>
+                <th class="col_precio">Precio</th>
+            </tr>
+            <% productos.forEach(function(producto){ %>
+                <tr>
+                    <td class="col_img"><img src="<%= producto.thumbnail %> " alt="" srcset="" class="img_table"> </td>
+                    <td class="col_id"> <%= producto.id %> </td>
+                    <td class="col_titulo"> <%= producto.titulo %> </td>
+                    <td class="col_precio"> <%= producto.precio %> </td>
+                </tr>
+            <% }) %>
+        </table>
+    </div>
+    <% } else { %>
+    <div class="box-msg">
+        <h2>No se encuentran productos registrados</h2>
+        <p>Debes cargar los productos primero, para luego visualizarlos</p>
+    </div>
+    <% } %>
+
+    <a class="btn_primary" href="/create"> CREAR + </a>
+
+    <%- include('../partials/footer'); %>
+</body>
+</html>
