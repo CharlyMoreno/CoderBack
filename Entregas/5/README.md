@@ -6,5 +6,5 @@ Se reutilizo todo el css usado en la entrega anterior, al igual que la clase per
 
 Para ejecutar se debe ingresar a la carpeta del motor que querrarmos utilizar y luego hacer uso de ``` node server.js ```.
 
-[![Product Name Screen Shot][https://i.imgur.com/jJlRD5p.png]]
-[![Product Name Screen Shot][https://i.imgur.com/Aqf5zfX.png]]
+![Image text](https://i.imgur.com/jJlRD5p.png)
+![Image text](https://i.imgur.com/Aqf5zfX.png)
