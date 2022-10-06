@@ -1,0 +1,45 @@
+        <div class="tabla">
+            <table style="width:100%" id="tabla_productos">
+                <tr class="table_header">
+                    <th class="col_img">Imagen</th>
+                    <th class="col_id">Id</th>
+                    <th class="col_titulo">Titulo</th>
+                    <th class="col_precio">Precio</th>
+                </tr>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tabla">
+            <h2 class="title_form">Crear Producto</h2>
+            <form onsubmit="return addProduct(this)">
+                <p><label for="titulo">Titulo:</label>
+                <input type="text" name="titulo" id="titulo"></p>
+                <p><label for="precio">Precio:</label>
+                <input type="number" name="precio" id="precio"></p>
+                <p><label for="thumbnail">Thumbnail:</label>
+                <input type="text" name="thumbnail" id="thumbnail"></p>
+                <input class="btn_form" id="btn_enviar" value="Enviar" type="submit">
+            </form>
+        </div>
+
+        <div class="tabla">
+            <div class="chat">
+                <h2 class="title_form">Chat</h2>
+                <p><label for="titulo">Username:</label>
+                <input type="text" name="username" id="username"></p>
+                <div class="chat_box">
+
+                </div>
+                <div class="enviar_msg">
+                    <p><label for="titulo">Mensaje:</label>
+                    <input type="text" name="mensaje" id="mensaje">
+                    <button onclick="addMensaje(this)">Enviar</button></p>
+                </div>
+            </div>
+        </div>
+
+
+        {{!-- <a class="btn_primary"  href="/create"> CREAR + </a> --}}
