@@ -32,11 +32,25 @@ router.get('/:id',async (req,res)=>{
 //POST --> Agregar producto
 router.post('/',async (req,res)=>{
     try{
-        console.log(req.baseUrl)
         if(req.headers.administrator == "true"){
-            await p.save(req.body)
-            res.send('Post Correcto')
-            res.status(201)    
+            const producto = 
+            {
+                "timestamp":req.body.timestamp == undefined ? new Date().toDateString() : req.body.timestamp ,
+                "nombre": req.body.nombre,
+                "descripcion": req.body.descripcion,
+                "codigo": req.body.codigo,
+                "precio": req.body.precio,
+                "stock": req.body.stock,
+                "foto": req.body.foto
+            }
+            if(req.body.length > 1) {
+                res.send({"error":-1,"descripcion":`Enviar solamente un producto.`}) 
+            }
+            else{
+                await p.save(producto)
+                res.send('Post Correcto')
+                res.status(201)    
+            }
         }
         else{
            res.send({"error":-1,"descripcion":`${req.baseUrl} y método ${req.method} no disponible para usuarios.`}) 

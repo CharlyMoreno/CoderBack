@@ -1,0 +1,158 @@
+* {
+    font-family: 'DM Sans', sans-serif;
+    text-align: center;
+
+}
+
+body{
+    background-color: #1F2023;
+    color:white;
+}
+
+
+h1 span{
+    color:#D3E661;
+}
+
+h1{
+    font-weight: bold;
+    font-size: 50px;
+    margin:0;
+}
+
+.header{
+    border-bottom: #D3E661 2px solid;
+}
+
+.btn_primary{
+    background-color: #D3E661;
+    padding: 15px 30px;
+    font-size: 20px;
+    color:black;
+    margin:0px;
+    cursor:pointer;
+}
+
+
+.img_table{
+    width: 40px;
+    height: 40px;
+    border-radius: 500px;
+    object-fit: cover;
+    
+}
+
+.tabla{
+    background-color: #27282D;
+    width: 75%;
+    border-radius:30px;
+    padding: 25px;
+    margin:auto;
+    margin-top:40px;
+    margin-bottom: 40px;
+}
+
+.modificar{
+    color:#D3E661;
+    background: none;
+    border:none;
+    cursor:pointer;
+}
+
+.eliminar{
+    color:red;
+    background: none;
+    border:none;
+    cursor:pointer;
+}
+
+.col_img{
+    width: 10%;
+}
+
+.col_id{
+    width: 10%;
+}
+
+.col_titulo{
+    width: 45%;
+}
+
+.col_precio{
+    width: 10%;
+}
+
+.table_header th{
+    border-bottom: 3px solid #D3E661;
+    padding:15px;
+    border-collapse: collapse;
+}
+
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #27282D;
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 20px;
+    width: 50%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #D3E661;
+    float: right;
+    font-size: 50px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .modal-content h2{
+    font-size:50px;
+    padding:10px 0px;
+    margin:0px;
+    border-bottom: #D3E661 2px solid;
+  }
+
+  .modal-content span {
+        color:#D3E661;
+  }
+
+  form input{ 
+    padding: 5px 0px;
+    width: 40%;
+  }
+
+
+  .btn_form{
+    background-color: #D3E661;
+    color:black;
+    border:0px;
+    font-weight: bold;
+    padding: 15px 0px;
+    width: 50%;
+  }
+
+  form{
+    padding: 15px 0px;
+  }
