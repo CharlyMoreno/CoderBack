@@ -3,11 +3,13 @@ const { Router } = express;
 
 const app = express()
 const routerProd = require('./router/productos')
+const routerCarrito = require('./router/carrito')
 
 const PORT = process.env.PORT || 8080
 
 
 app.use('/api/productos', routerProd)
+app.use('/api/carrito', routerCarrito)
 app.use(express.static('public'));
 
 

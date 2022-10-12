@@ -24,7 +24,6 @@ class Contenedor {
             if (data.length == 0) objetoASumar.id = 1
             else {
                 //Si ya existen ID entonces buscaré el más grande y a ese le sumo uno, más que nada por si se saltean id's después no ocurran problemas.
-
                 //Copio el arreglo de los productos
                 let dataSorted = data
                 //Los ordeno en forma ascendente segun sus id's.
@@ -39,6 +38,7 @@ class Contenedor {
             //Escribo el archivo. 
             //NOTA: No hay problema con el writeFile porque estoy escribiendo el array completo y no solamente el objeto nuevo.
             await fs.promises.writeFile(this.nombreArchivo,JSON.stringify(data,null,'\t'),'utf-8')
+            return objetoASumar.id
         }
         catch(err){
             console.log(err)
@@ -96,6 +96,21 @@ class Contenedor {
         }
     }
 
+    async update(objetoActualizar) {
+        try{
+            let data = await this.getAll()
+            //Busco el objeto en el array de prodcutos compraando por el id.
+            const objetoBuscado = data.find(x => x.id == objetoActualizar.id)
+            const indiceActual = data.indexOf(objetoBuscado)
+            data[indiceActual] = objetoActualizar
+            //Escribo el archivo. 
+            //NOTA: No hay problema con el writeFile porque estoy escribiendo el array completo y no solamente el objeto nuevo.
+            await fs.promises.writeFile(this.nombreArchivo,JSON.stringify(data,null,'\t'),'utf-8')
+        }
+        catch(err){
+
+        }
+    }    
 }
 
 module.exports.Contenedor = Contenedor;

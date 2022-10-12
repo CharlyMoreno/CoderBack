@@ -1,0 +1,48 @@
+[
+	{
+		"id": 1,
+		"timestamp": "2022-10-10T21:00:00",
+		"productos": [
+			{
+				"titulo": "Auriculares ASUS ROG STRIX GO CORE",
+				"precio": "18970",
+				"thumbnail": "https://acortar.link/InFFer",
+				"id": 1
+			},
+			{
+				"titulo": "Disco Solido SSD Team 256GB",
+				"precio": "4522",
+				"thumbnail": "https://acortar.link/InFFer",
+				"id": 6
+			},
+			{
+				"titulo": "Auriculares Logitech H151 PC",
+				"precio": "2770",
+				"thumbnail": "https://acortar.link/InFFer",
+				"id": 3
+			}
+		]
+	},
+	{
+		"timestamp": "2022-10-10T21:00:00",
+		"productos": [
+			{
+				"titulo": "Disco Sólido SSD Adata 240GB",
+				"precio": "4620",
+				"thumbnail": "https://acortar.link/InFFer",
+				"id": 8
+			},
+			{
+				"titulo": "Auriculares Logitech G433 Gaming Black",
+				"precio": "16800",
+				"thumbnail": "https://acortar.link/InFFer",
+				"id": 4
+			}
+		],
+		"id": 2
+	},
+	{
+		"timestamp": "Tue Oct 11 2022",
+		"id": 3
+	}
+]

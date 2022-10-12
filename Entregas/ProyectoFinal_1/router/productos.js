@@ -32,9 +32,15 @@ router.get('/:id',async (req,res)=>{
 //POST --> Agregar producto
 router.post('/',async (req,res)=>{
     try{
-        await p.save(req.body)
-        res.send('Post Correcto')
-        res.status(201)    
+        console.log(req.baseUrl)
+        if(req.headers.administrator == "true"){
+            await p.save(req.body)
+            res.send('Post Correcto')
+            res.status(201)    
+        }
+        else{
+           res.send({"error":-1,"descripcion":`${req.baseUrl} y método ${req.method} no disponible para usuarios.`}) 
+        }
     }
     catch(err){res.status(500) }
 })
@@ -42,9 +48,14 @@ router.post('/',async (req,res)=>{
 //PUT --> Actualizar producto
 router.put('/:id',async (req,res)=>{
     try{
-        await p.update(req.params.id,req.body)
-        res.send('Put Correcto')
-        res.status(200)
+        if(req.headers.administrator == "true"){
+            await p.update(req.params.id,req.body)
+            res.send('Put Correcto')
+            res.status(200)
+        }
+        else{
+            res.send({"error":-1,"descripcion":`${req.baseUrl} y método ${req.method} no disponible para usuarios.`}) 
+         }
     }
     catch(err){res.status(500)}
 })
@@ -52,9 +63,14 @@ router.put('/:id',async (req,res)=>{
 //DELETE --> Borrar producto
 router.delete('/:id',async (req,res)=>{
     try{
-        await p.deleteById(req.params.id)
-        res.send('Remove Correcto')
-        res.status(200)
+        if(req.headers.administrator == "true"){
+            await p.deleteById(req.params.id)
+            res.send('Remove Correcto')
+            res.status(200)
+        }
+        else{
+            res.send({"error":-1,"descripcion":`${req.baseUrl} y método ${req.method} no disponible para usuarios.`}) 
+        }
     }
     catch(err){res.status(500)}
 })

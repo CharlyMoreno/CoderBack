@@ -46,5 +46,18 @@
 		"precio": "18970",
 		"thumbnail": "https://acortar.link/InFFer",
 		"id": 1
-	}
+	},
+	[
+		{
+			"titulo": "Producto",
+			"precio": 1000,
+			"thumbnail": "test",
+			"caca": "caca"
+		},
+		{
+			"titulo": "Hola",
+			"precio": 2000,
+			"thumbnail": "testing"
+		}
+	]
 ]
