@@ -33,20 +33,25 @@ router.get('/:id',async (req,res)=>{
 router.post('/',async (req,res)=>{
     try{
         if(req.headers.administrator == "true"){
-            const producto = 
-            {
-                "timestamp":req.body.timestamp == undefined ? new Date().toDateString() : req.body.timestamp ,
-                "nombre": req.body.nombre,
-                "descripcion": req.body.descripcion,
-                "codigo": req.body.codigo,
-                "precio": req.body.precio,
-                "stock": req.body.stock,
-                "foto": req.body.foto
-            }
-            if(req.body.length > 1) {
-                res.send({"error":-1,"descripcion":`Enviar solamente un producto.`}) 
-            }
+            
+            if(!req.body.nombre) res.send({"error":-1,"descripcion":`Debe ingresar un nombre.`})
+            else if(!req.body.descripcion) res.send({"error":-1,"descripcion":`Debe ingresar una descripcion.`})
+            else if(!req.body.codigo) res.send({"error":-1,"descripcion":`Debe ingresar un codigo.`})
+            else if(!req.body.precio) res.send({"error":-1,"descripcion":`Debe ingresar un precio.`})
+            else if(!req.body.stock) res.send({"error":-1,"descripcion":`Debe ingresar un stock.`})
+            else if(!req.body.foto) res.send({"error":-1,"descripcion":`Debe ingresar una foto.`})
+            else if(req.body.length > 1) res.send({"error":-1,"descripcion":`Enviar solamente un producto.`}) 
             else{
+                const producto = 
+                {
+                    "timestamp":req.body.timestamp == undefined ? new Date().toDateString() : req.body.timestamp ,
+                    "nombre": req.body.nombre,
+                    "descripcion": req.body.descripcion,
+                    "codigo": req.body.codigo,
+                    "precio": req.body.precio,
+                    "stock": req.body.stock,
+                    "foto": req.body.foto
+                }
                 await p.save(producto)
                 res.send('Post Correcto')
                 res.status(201)    

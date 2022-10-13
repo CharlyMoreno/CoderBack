@@ -11,8 +11,15 @@ router.use(express.json());
 router.get('/:id',async (req,res)=>{
     try{
         const carrito = await c.getById(req.params.id);
-        res.json(carrito)
-        res.status(200)
+        if(!carrito) {
+            res.status(404)
+            res.send({"error":-1,"descripcion":`Carrito no encontrado.`})
+        }
+        else{
+            res.status(200)
+            res.json(carrito)
+        }
+            
     }
     catch(err){res.status(500)}
 })
@@ -21,13 +28,13 @@ router.get('/:id',async (req,res)=>{
 router.get('/:id/productos',async (req,res)=>{
     try{
         const carrito = await c.getById(req.params.id);
-        if(carrito == undefined){
+        if(!carrito){
             res.status(404)
             res.send({"error":-1,"descripcion":`Carrito no encontrado.`})
         }
         else{
-            res.json(carrito.productos)
             res.status(200)
+            res.json(carrito.productos)
         }
     }
     catch(err){res.status(500)}
@@ -37,12 +44,12 @@ router.get('/:id/productos',async (req,res)=>{
 router.post('/',async (req,res)=>{
     try{
         let carrito = req.body;
-        if(carrito.timestamp == undefined){
+        if(!carrito.timestamp){
             carrito.timestamp = new Date().toDateString();
         }
         const idNuevoCarrito = await c.save(carrito)
-        res.send(`Post Correcto - Carrito ID: ${idNuevoCarrito}`)
         res.status(201)    
+        res.send(`Post Correcto - Carrito ID: ${idNuevoCarrito}`)
     }
     catch(err){res.status(500) }
 })
@@ -52,7 +59,7 @@ router.post('/:id/productos/:id_prod',async (req,res)=>{
     try{
         let carrito = await c.getById(req.params.id)
         let producto = await p.getById(req.params.id_prod)
-        if(carrito == undefined || producto == undefined){
+        if(!carrito || !producto){
             res.status(404) 
             res.send({"error":-1,"descripcion":`Carrito o producto no encontrado.`})
         }
