@@ -3,9 +3,8 @@ const PORT = process.env.PORT || 8080
 const {Server: HttpServer} = require('http')
 const {Server: IOServer} = require('socket.io')
 
-const con = require('./persistencia/persistencia.js')
-const mens_pers  = new con.Contenedor(__dirname + '/persistencia/mensajes.txt');
-const prod_pers  = new con.Contenedor(__dirname + '/persistencia/productos.txt');
+const perSqlLite = require(__dirname + '/persistencia/persSQLite3.js');
+const persMysql = require(__dirname + '/persistencia/persMysql.js');
 
 const app = express()
 const httpServer = new HttpServer(app)
@@ -13,7 +12,6 @@ const io = new IOServer(httpServer)
 
 //HANDLEBARS 
 const handlebars = require('express-handlebars');
-const { application } = require('express');
 app.set('view engine', 'hbs');
 app.engine('hbs', handlebars.engine({
     layoutsDir: __dirname + '/views/layouts',
@@ -34,24 +32,25 @@ app.get('/',(req,res)=>{
     }
 })
 
+
 io.on('connection',async (socket)=>{
     console.log('Usuario conectado');
-    const productos = await prod_pers.getAll();
-    const mensajes = await mens_pers.getAll();
+    const productos = await persMysql.realizarSelect('productos');
+    const mensajes = await perSqlLite.realizarSelect('mensajes')
     
     socket.emit('dataProducts',[productos]);
 
     socket.on('new-product',async data => {
-        await prod_pers.save(data);
-        const productos = await prod_pers.getAll();
+        await persMysql.realizarInsert('productos',data);
+        const productos = await persMysql.realizarSelect('productos');
         io.sockets.emit('dataProducts', [productos]);
     });
 
     socket.emit('dataMessages',[mensajes]);
 
     socket.on('new-message',async data => {
-        await mens_pers.save(data);
-        const mensajes = await mens_pers.getAll();
+        await perSqlLite.realizarInsert('mensajes',data);;
+        const mensajes = await perSqlLite.realizarSelect('mensajes');
         io.sockets.emit('dataMessages', [mensajes]);
     });
        
