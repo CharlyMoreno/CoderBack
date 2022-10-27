@@ -1,0 +1,131 @@
+//INSERTS MENSAJES
+db.mensajes.insert([{author: "SERVIDOR",mensaje: "Bienvenido!",fecha: "2022-10-01T21:19"},{author: "Charly Moreno",mensaje: "Hola Leo, te hablo desde el mas alla ;)",fecha: "2022-10-06T11:35"}])
+
+//INSERTS PRODUCTOS
+db.productos.insert([
+	{
+		"titulo": "Disco Sólido SSD Adata 240GB",
+		"precio": 120,
+		"thumbnail": "https://acortar.link/InFFer",
+	},
+	{
+		"titulo": "Disco Solido SSD KingDian 512GB",
+		"precio": 580,
+		"thumbnail": "https://acortar.link/InFFer",
+	},
+	{
+		"titulo": "Disco Solido SSD Team 256GB",
+		"precio": 900,
+		"thumbnail": "https://acortar.link/InFFer",
+	},
+	{
+		"titulo": "Disco Solido SSD Team 128GB",
+		"precio": 1280,
+		"thumbnail": "https://acortar.link/InFFer",
+	},
+	{
+		"titulo": "Auriculares Logitech G433 Gaming Black",
+		"precio": "1700",
+		"thumbnail": "https://acortar.link/InFFer",
+	},
+	{
+		"titulo": "Auriculares Logitech H151 PC",
+		"precio": 2300,
+		"thumbnail": "https://acortar.link/InFFer",
+	},
+	{
+		"titulo": "Auriculares HyperX Cloud Flight Black",
+		"precio": 2860,
+		"thumbnail": "https://acortar.link/InFFer",
+	},
+	{
+		"titulo": "Auriculares ASUS ROG STRIX GO CORE",
+		"precio": 3350,
+		"thumbnail": "https://acortar.link/InFFer",
+	},
+    	{
+		"titulo": "Microfono Logitech Blue Snowball Black",
+		"precio": 4320,
+		"thumbnail": "https://acortar.link/InFFer",
+	},
+    	{
+		"titulo": "Microfono HyperX SoloCast PC PS4",
+		"precio": 4990,
+		"thumbnail": "https://acortar.link/InFFer",
+	}
+])
+
+
+3) Listar todos los documentos en cada colección.
+
+db.mensajes.find()
+db.productos.find()
+
+
+4) Mostrar la cantidad de documentos almacenados en cada una de ellas.
+
+db.mensajes.countDocuments()
+db.productos.countDocuments()
+
+5) Realizar un CRUD sobre la colección de productos:
+
+// CREATE
+db.productos.insert(	{
+		"titulo": "Producto Test",
+		"precio": 120,
+		"thumbnail": "",
+	})
+
+//FIND
+db.productos.find({titulo:{$eq: "Producto Test"}})
+
+//UPDATE
+db.productos.update({titulo:{$eq:"Producto Test"}},{$set:{precio:50000}})
+
+//DELETE 
+db.productos.deleteOne({titulo:{$eq:"Producto Test"}})
+
+
+6) Agregar un producto más en la colección de productos
+
+db.productos.insert({
+		"titulo": "Webcam Redragon GW800 Hitman 1080p",
+		"precio": 5000,
+		"thumbnail": "https://acortar.link/InFFer",
+	})
+
+7) Realizar una consulta por nombre de producto específico:
+
+db.productos.find({titulo:{$eq:'Microfono HyperX SoloCast PC PS4'}})
+
+8) Listar los productos con precio menor a 1000 pesos.
+
+db.productos.find({precio:{$lt:1000}})
+
+9) Listar los productos con precio entre los 1000 a 3000 pesos.
+
+db.productos.find({$and:[{precio:{$gte:1000}},{precio:{$lte:3000}}]})
+
+10) Listar los productos con precio mayor a 3000 pesos.
+
+db.productos.find({precio:{$gt:3000}})
+
+11) Realizar una consulta que traiga sólo el nombre del tercer producto más barato.
+
+db.productos.find({},{titulo:1}).sort({precio:1}).skip(2).limit(1)
+
+12) Hacer una actualización sobre todos los productos, agregando el campo stock a todos ellos con un valor de 100.
+
+db.productos.updateMany({},{$set:{"stock":100}})
+
+13) Cambiar el stock a cero de los productos con precios mayores a 4000 pesos. 
+
+db.productos.updateMany({precio:{$gt:4000}},{$set:{"stock":0}})
+
+
+14) Borrar los productos con precio menor a 1000 pesos 
+
+db.productos.deleteMany({precio:{$lt:1000}})
+
+15) Crear un usuario 'pepe' clave: 'asd456' que sólo pueda leer la base de datos ecommerce. Verificar que pepe no pueda cambiar la información.
+
