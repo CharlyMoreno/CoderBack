@@ -1,0 +1,32 @@
+[
+	{
+		"timestamp": "Tue Oct 11 2022",
+		"nombre": "Disco Sólido SSD Adata 240GB",
+		"descripcion": "Disco descripcion bla bla bla.",
+		"codigo": "AAA-111",
+		"precio": "4620",
+		"stock": 1,
+		"foto": "https://acortar.link/InFFer",
+		"id": 6
+	},
+	{
+		"timestamp": "Tue Oct 11 2022",
+		"nombre": "Disco Sólido SSD Adata 240GB",
+		"descripcion": "Disco descripcion bla bla bla.",
+		"codigo": "",
+		"precio": "4620",
+		"stock": 100,
+		"foto": "https://acortar.link/InFFer",
+		"id": 5
+	},
+	{
+		"timestamp": "Tue Oct 11 2022",
+		"nombre": "Disco Sólido SSD Adata 240GB",
+		"descripcion": "Disco descripcion bla bla bla.",
+		"codigo": "AAA-111",
+		"precio": "4620",
+		"stock": 9,
+		"foto": "https://acortar.link/InFFer",
+		"id": 7
+	}
+]
