@@ -1,6 +1,6 @@
 // Archivo
-// import { ProductosDaoArchivo } from "./productos/ProductosDaoArchivo.js";
-// import { CarritosDaoArchivo } from "./carritos/CarritosDaoArchivo.js";
+import { ProductosDaoArchivo } from "../daos/productos/ProductosDaoArchivo.js";
+// import { CarritosDaoArchivo } from "../daos/carritos/CarritosDaoArchivo.js";
 // Memoria
 // import { ProductosDaoMemoria } from "./productos/ProductosDaoMemoria.js";
 // import { CarritosDaoMemoria } from "./carritos/CarritosDaoMemoria.js";
@@ -14,13 +14,13 @@ import { CarritosDaoMongoDb } from "../daos/carritos/CarritosDaoMongoDb.js";
 let productosDao;
 let carritosDao;
 
-const PERS = process.env.PERS || "mongoDb";
+const PERS = process.env.PERS || "archivo";
 
 switch (PERS) {
-  // case "archivo":
-  //   productosDao = new ProductosDaoArchivo();
-  //   carritosDao = new CarritosDaoArchivo();
-  //   break;
+  case "archivo":
+    productosDao = new ProductosDaoArchivo();
+    // carritosDao = new CarritosDaoArchivo();
+    break;
 
   // case "memoria":
   //   productosDao = new ProductosDaoMemoria();
