@@ -2,7 +2,18 @@
 	{
 		"id": 1,
 		"timestamp": "2022-10-10T21:00:00",
-		"productos": []
+		"productos": [
+			{
+				"timestamp": "Tue Oct 11 2022",
+				"nombre": "Disco Sólido SSD Adata 240GB",
+				"descripcion": "Disco descripcion bla bla bla.",
+				"codigo": "",
+				"precio": "4620",
+				"stock": 100,
+				"foto": "https://acortar.link/InFFer",
+				"id": 5
+			}
+		]
 	},
 	{
 		"timestamp": "2022-10-10T21:00:00",
