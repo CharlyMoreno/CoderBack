@@ -5,8 +5,8 @@ import { CarritosDaoArchivo } from "../daos/carritos/CarritosDaoArchivo.js";
 import { ProductosDaoMemoria } from "./productos/ProductosDaoMemoria.js";
 import { CarritosDaoMemoria } from "./carritos/CarritosDaoMemoria.js";
 // Firebase
-// import { ProductosDaoFirebase } from "./productos/ProductosDaoFirebase.js";
-// import { CarritosDaoFirebase } from "./carritos/CarritosDaoFirebase.js";
+import { ProductosDaoFirebase } from "./productos/ProductosDaoFirebase.js";
+import { CarritosDaoFirebase } from "./carritos/CarritosDaoFirebase.js";
 // MongoDb
 // import { ProductosDaoMongoDb } from "../daos/productos/ProductosDaoMongoDb.js";
 // import { CarritosDaoMongoDb } from "../daos/carritos/CarritosDaoMongoDb.js";
@@ -14,7 +14,10 @@ import { CarritosDaoMemoria } from "./carritos/CarritosDaoMemoria.js";
 let productosDao;
 let carritosDao;
 
-const PERS = process.env.PERS || "memoria";
+import dotenv from "dotenv"
+const env = dotenv.config()
+console.log(process.env.PERS || "firebase")
+const PERS = process.env.PERS || "firebase";
 
 switch (PERS) {
   case "archivo":
@@ -27,10 +30,10 @@ switch (PERS) {
     carritosDao = new CarritosDaoMemoria();
   break;
 
-  // case "firebase":
-  //   productosDao = new ProductosDaoFirebase();
-  //   carritosDao = new CarritosDaoFirebase();
-  //   break;
+  case "firebase":
+    productosDao = new ProductosDaoFirebase();
+    carritosDao = new CarritosDaoFirebase();
+    break;
 
   case "mongoDb":
     productosDao = new ProductosDaoMongoDb();
