@@ -1,4 +1,4 @@
 /src/node_modules
 /node_modules
-/src/.env
-/src/config/eccomerce-coder-78197-firebase-adminsdk-x3dz2-3b203a4b3a.json
+src/config/.env
+src/config/eccomerce-coder-78197-firebase-adminsdk-x3dz2-3b203a4b3aa.json

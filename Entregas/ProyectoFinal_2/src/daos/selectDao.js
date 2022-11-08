@@ -16,8 +16,8 @@ let carritosDao;
 
 import dotenv from "dotenv"
 const env = dotenv.config()
-console.log(process.env.PERS || "firebase")
-const PERS = process.env.PERS || "firebase";
+console.log(process.env.PERS || "archivo")
+const PERS = process.env.PERS || "archivo";
 
 switch (PERS) {
   case "archivo":
