@@ -1,0 +1,189 @@
+* {
+    font-family: 'DM Sans', sans-serif;
+    text-align: center;
+
+}
+
+body{
+    background-color: #1F2023;
+    color:white;
+}
+
+
+h1 span{
+    color:#D3E661;
+}
+
+h1{
+    font-weight: bold;
+    font-size: 50px;
+    margin:0;
+}
+
+footer{
+    margin-top: 50px;
+}
+
+
+.header{
+    border-bottom: #D3E661 2px solid;
+}
+
+.btn_primary{
+    background-color: #D3E661;
+    padding: 15px 30px;
+    font-size: 20px;
+    color:black;
+    margin:0px;
+    cursor:pointer;
+}
+
+
+.img_table{
+    width: 40px;
+    height: 40px;
+    border-radius: 500px;
+    object-fit: cover;
+    
+}
+
+.tabla{
+    background-color: #27282D;
+    width: 75%;
+    border-radius:30px;
+    padding: 25px;
+    margin:auto;
+    margin-top:40px;
+    margin-bottom: 40px;
+}
+
+.modificar{
+    color:#D3E661;
+    background: none;
+    border:none;
+    cursor:pointer;
+}
+
+.eliminar{
+    color:red;
+    background: none;
+    border:none;
+    cursor:pointer;
+}
+
+.col_img{
+    width: 10%;
+}
+
+.col_id{
+    width: 10%;
+}
+
+.col_titulo{
+    width: 65%;
+}
+
+.col_precio{
+    width: 10%;
+}
+
+.table_header th{
+    border-bottom: 3px solid #D3E661;
+    padding:15px;
+    border-collapse: collapse;
+}
+
+  form input{ 
+    padding: 5px 0px;
+    width: 40%;
+  }
+
+
+  .btn_form{
+    background-color: #D3E661;
+    color:black;
+    border:0px;
+    font-weight: bold;
+    padding: 15px 0px;
+    width: 50%;
+  }
+
+  form{
+    padding: 15px 0px;
+  }
+
+  .box-msg{
+    background-color: #D3E661;
+    width: 50%;
+    border-radius:30px;
+    padding: 10px 25px;
+    margin:auto;
+    margin-top:40px;
+    margin-bottom: 40px;
+    color: black;
+}
+
+.box-msg h2{
+    font-size:30px;
+    font-weight: bold;
+}
+
+.btn_primary{
+    background-color: #D3E661;
+    padding: 15px 30px;
+    font-size: 20px;
+    color:black;
+    margin:0px;
+    cursor:pointer;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.title_form{
+    font-size:50px;
+    padding:10px 0px;
+    margin:0px;
+    border-bottom: #D3E661 2px solid;
+  }
+  
+
+.chat input{ 
+    padding: 5px 0px;
+    width: 40%;
+  }
+
+  .chat button {
+    background-color: #D3E661;
+    color:black;
+    border:0px;
+    font-weight: bold;
+    padding: 15px 0px;
+    margin-left: 15px;
+    width: 10%;
+  }
+
+.chat_box {
+    background-color: #404146;
+    color:white;
+    padding: 20px;
+    border-radius: 30px;
+    margin:auto;
+}
+
+.span_name {
+    color: #D3E661;
+    font-weight: bold;
+}
+.span_mensaje {
+    margin-right: 10px;
+    margin-left:10px;
+}
+
+.span_fecha{
+    color:#C63C56;
+
+}
+
+.form div{
+    margin:15px;
+}

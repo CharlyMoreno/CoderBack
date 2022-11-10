@@ -1,0 +1,44 @@
+{
+    "id": 1,
+    "messages":[
+        {
+            "id":1,
+            "text":"Hola Mensaje 1",
+            "author":{
+                "email":"test@test.com.ar",
+                "nombre":"Carlos",
+                "apellido":"Moreno",
+                "edad":20,
+                "alias":"carlosmoreno",
+                "avatar":"https://acortar.link/InFFer"
+            },
+            "fecha":"2022-11-10T17:00"
+        },
+        {
+            "id":2,
+            "text":"Hola Mensaje 2",
+            "author":{
+                "email":"test@test.com.ar",
+                "nombre":"Carlos",
+                "apellido":"Moreno",
+                "edad":20,
+                "alias":"carlosmoreno",
+                "avatar":"https://acortar.link/InFFer"
+            },
+            "fecha":"2022-11-10T17:00"
+        },
+        {
+            "id":3,
+            "text":"Hola Mensaje 3",
+            "author":{
+                "email":"test@test.com.ar",
+                "nombre":"Carlos",
+                "apellido":"Moreno",
+                "edad":20,
+                "alias":"carlosmoreno",
+                "avatar":"https://acortar.link/InFFer"
+            },
+            "fecha":"2022-11-10T17:00"
+        }
+    ] 
+}
