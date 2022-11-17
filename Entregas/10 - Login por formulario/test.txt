@@ -1,0 +1,49 @@
+app.get('/',auth,(req,res)=>{
+    const username = req.session.user
+    res.send(`<h1>Bienvenido: <span>${username}</span></h1>
+    <a href="/privado">Contenido Privado</a>
+    <a href="/logout">Logout</a>`)
+})
+
+app.get('/login',(req,res)=>{
+    res.sendFile(path.join(__dirname, './public', 'index.html'))
+})
+
+app.post('/login',(req,res)=>{
+    const {username,password} = req.body
+    if(username !== 'pepe' || password !== '123') {
+    return res.send(`
+        <body onLoad="redireccionar()">
+            <h1>Usuario o contraseña incorrecta!    </h1>
+        <script>
+            function redireccionar() {
+                setTimeout("window.location.href = '/';", 2000);
+            }
+        </script>
+        </body>`)
+    }
+    req.session.user = username
+    req.session.admin = true
+    res.redirect('/')
+})
+
+app.get('/logout',auth,(req,res) =>{
+    req.session.destroy(err =>{
+        if(err){
+            return res.json({status:'Logout failed'})
+        }
+        res.send(`
+        <body onLoad="redireccionar()">
+            <h1>Hasta luego!</h1>
+        <script>
+            function redireccionar() {
+                setTimeout("window.location.href = '/';", 2000);
+            }
+        </script>
+        </body>`)
+    })
+})
+
+app.get('/privado',auth,(req,res) =>{
+    res.send('Contenido privado accedido correctamente.')
+})
