@@ -1,0 +1,21 @@
+============================================================
+# NODEMON #
+
+Fork => nodemon server.js 8080 fork
+Cluster => nodemon server.js 8080 cluster
+
+============================================================
+# FOREVER #
+
+Fork => forever server.js 8080 fork
+Cluster => forever server.js 8080 cluster
+
+============================================================
+# PM2 #
+
+Fork => pm2 start server.js --name="Server1" --watch -- 8080 fork
+Cluster => pm2 start server.js --name="Server1" --watch -i (max o cant de cpus) -- 8081 
+
+Listar Procesos = pm2 list
+
+
