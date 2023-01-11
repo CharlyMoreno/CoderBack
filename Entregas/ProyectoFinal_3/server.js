@@ -1,18 +1,20 @@
 const express = require('express')
 const session = require('express-session')
 const cookieParser = require('cookie-parser')
-const cluster = require('cluster')
 require('dotenv').config()
 
-const PORT = parseInt(process.argv[2]) || 8080
-const numCPUs = require('os').cpus().length
-const mode = process.argv[3]
-
 const handlebars = require('express-handlebars')
-const { authRouter } = require('./Routes/auth.routes.js')
-const { infoRouter } = require('./Routes/info.routes.js')
-const { randomsRouter } = require('./Routes/randoms.routes.js')
+const flash = require('connect-flash');
+
+const PORT = process.env.PORT || 8080
+const mode = process.argv[3]
+const numCPUs = require('os').cpus().length
+
+const { authRouter } = require('./routes/auth.routes.js')
 const { authMiddleware } = require('./middlewares/auth.middleware')
+
+//___________________________________________  LOGS  _________________________________________________ //
+const {logger} = require('./loggers/log4js.loggers')
 const { loggerMiddleware } = require('./middlewares/logger.middleware')
 //_____________________________________________ mongo para session _____________________________________ //
 const MongoStore = require('connect-mongo')
@@ -22,9 +24,12 @@ const passport = require('passport')
 const { initPassport } = require('./middlewares/passport.js')
 //____________________________________________________________________________________________________ //
 
-//___________________________________________  LOGS  _________________________________________________ //
-const {logger} = require('./loggers/log4js.loggers')
-//____________________________________________________________________________________________________ //
+const apiProductosRouter = require('./routes/api.productos.routes')
+const { productosRouter } = require('./routes/productos.routes.js')
+const { carritoRouter } = require('./routes/carrito.routes.js')
+
+const { getCurrentUser } = require('./middlewares/currentUser')
+
 const app = express()
 
  /////////////////////// configuracion de handlebars /////////////////////////
@@ -33,10 +38,12 @@ const app = express()
     handlebars.engine({
         extname: ".hbs",
         defaultLayout: 'index.hbs',
+        allowProtoMethodsByDefault:true
     })
 )
 app.set("view engine", "hbs")
 app.set("views", "./views")
+app.use(flash())
 
 //////////////  middleware  ///////////////////////
 app.use(session({
@@ -52,6 +59,13 @@ app.use(session({
     }
 }))
 
+app.use((req, res, next) => {
+    app.locals.signinMessage = req.flash('signinMessage');
+    app.locals.signupMessage = req.flash('signupMessage');
+    app.locals.user = req.user;
+    next();
+  });
+
 app.use(cookieParser(process.env.SECRET))
 
 initPassport()
@@ -65,20 +79,16 @@ app.use(express.urlencoded({ extended: true }))
 app.use(loggerMiddleware)
 
 app.use('/api/auth', authRouter)
-app.use('/info',infoRouter)
-app.use('/api/randoms',randomsRouter)
+app.use('/api/productos', apiProductosRouter)
+app.use('/productos', productosRouter)
+app.use('/carrito', carritoRouter)
 
-app.all("*", (req, res) => {
-    logger.warn(`[${req.method}] ${req.originalUrl} - No existente`)
-    res.status(404).json({"error": "ruta no existente"})
-});
-
-app.get('/',(req, res) => {
-    // res.render('principal')
-    res.send(`Servidor express en PORT: ${PORT} - PID ${process.pid} - ${new Date(Date.now()).toISOString()}`)
+app.get('/', authMiddleware,async(req, res) => {
+    const user = await getCurrentUser(req.user);
+    res.render('principal',{user:user})
 })
 
-app.get('/privado', authMiddleware,(req, res) => {
+app.get('/privado', authMiddleware, async (req, res) => {
     res.send('Contenido Privado')
 })
 
@@ -109,6 +119,4 @@ else{
     
     server.on("error",err=>logger.error(err));
 }
-
-
 
