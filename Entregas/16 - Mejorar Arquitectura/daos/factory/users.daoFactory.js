@@ -8,11 +8,11 @@ const opcion = process.env.USERS_PERSISTENCIA || 'MongoDB'
 let dao
 switch (opcion) {
     case 'MongoDB':
-        dao = new UsersDaoMongoDB()
+        dao = UsersDaoMongoDB.getInstance()
         break
     default:
         logger.error(` ATENCION: El método ${opcion} para "USERS" no está implementado. Por lo que se ejecutará por defecto la persistencia en MongoDB. `)
-        dao = new UsersDaoMongoDB()
+        dao = UsersDaoMongoDB.getInstance()
 }
 
 module.exports = class UsersDaoFactory {

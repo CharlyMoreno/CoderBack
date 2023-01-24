@@ -9,11 +9,11 @@ const opcion = process.env.CARRITOS_PERSISTENCIA || 'MongoDB'
 let dao
 switch (opcion) {
     case 'MongoDB':
-        dao = new CarritosDaoMongoDB()
+        dao = CarritosDaoMongoDB.getInstance()
         break
     default:
         logger.error(` ATENCION: El método ${opcion} para "CARRITOS" no está implementado. Por lo que se ejecutará por defecto la persistencia en MongoDB. `)
-        dao = new CarritosDaoMongoDB()
+        dao = CarritosDaoMongoDB.getInstance()
 }
 
 module.exports = class CarritosDaoFactory {

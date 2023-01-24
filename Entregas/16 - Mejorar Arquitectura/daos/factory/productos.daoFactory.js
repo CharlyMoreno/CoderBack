@@ -8,11 +8,11 @@ const opcion = process.env.PRODUCTOS_PERSISTENCIA || 'MongoDB'
 let dao
 switch (opcion) {
     case 'MongoDB':
-        dao = new ProductosDaoMongoDB()
+        dao = ProductosDaoMongoDB.getInstance()
         break
     default:
         logger.error(` ATENCION: El método ${opcion} para "PRODUCTOS" no está implementado. Por lo que se ejecutará por defecto la persistencia en MongoDB. `)
-        dao = new ProductosDaoMongoDB()
+        dao = ProductosDaoMongoDB.getInstance()
 }
 
 module.exports = class ProductosDaoFactory {
