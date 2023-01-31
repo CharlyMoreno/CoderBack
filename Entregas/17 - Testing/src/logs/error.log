@@ -19,4 +19,4 @@
   port: 8080
 }
 [2023-01-24T19:36:32.721] [ERROR] default -  ATENCION: El método archivo para "USERS" no está implementado. Por lo que se ejecutará por defecto la persistencia en MongoDB. 
-[2023-01-31T18:46:19.365] [ERROR] default -  ATENCION: El método archivo para "USERS" no está implementado. Por lo que se ejecutará por defecto la persistencia en MongoDB. 
+[2023-01-31T10:26:37.819] [ERROR] default -  ATENCION: El método archivo para "USERS" no está implementado. Por lo que se ejecutará por defecto la persistencia en MongoDB. 
