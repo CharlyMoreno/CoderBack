@@ -86,9 +86,7 @@ describe("test api rest full", () => {
 
 async function connectDb() {
   try {
-    const mongoDB =
-      process.env.MONGOURL ||
-      "mongodb+srv://charlymoreno:s1GTdTMiz25g9GXi@cluster0.7xa3j6t.mongodb.net/test";
+    const mongoDB = process.env.MONGOURL
     await mongoose.connect(mongoDB, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
